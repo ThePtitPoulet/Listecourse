@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-button color="light" (click)="dismissRegister()">Fermer</ion-button>
+    <ion-title>Inscription</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+  <form #form="ngForm" (ngSubmit)="register(form)" method="post" action='register'> <!--utilise la fonction register(form) presente dans register.page.ts-->
+    <ion-item>
+        <ion-label position="floating">Prénom</ion-label>
+        <ion-input ngModel name="fName"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Nom</ion-label>
+      <ion-input ngModel name="lName"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Email</ion-label>
+      <ion-input type="email" ngModel name="email"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Mot de passe</ion-label>
+      <ion-input type="password" ngModel name="password"></ion-input>
+    </ion-item>
+<h1>   </h1>
+<div class="bin">
+    <ion-button shape="round" type="submit" expand="full" color="success">Inscription</ion-button>
+</div>
+  </form>
+  <p text-center>Déjà membre ?</p>
+  <div class="bin">
+  <ion-button shape="round" expand="full" color="primary" (click)="loginModal()">Connexion</ion-button> <!--utilise la fonction loginModal presente dans register.page.ts-->
+  </div>
+</ion-content>
+
+<style>
+
+.bin{
+  width: 200px;
+  margin: auto;
+}
+
+
+</style>

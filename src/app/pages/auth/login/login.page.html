@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-button color="light" (click)="retourconnexion()">Fermer</ion-button> <!--utilise la fonction retourconnexion presente dans login.page.ts-->
+    <ion-title>Connexion</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <form #form="ngForm" (ngSubmit)="login(form)" method="post" action="login"> <!--utilise la fonction login(forme) presente dans login.page.ts-->
+    <ion-item>
+      <ion-label position="floating">Email</ion-label>
+      <ion-input ngModel type="email" name="email"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Mot de passe</ion-label>
+      <ion-input ngModel type="password" name="password"></ion-input>
+    </ion-item>
+
+    <h1></h1>
+<div class="bco">
+    <ion-button shape="round" type="submit" expand="full" color="primary">Connexion</ion-button>
+</div>
+  </form>
+
+</ion-content>
+
+
+<style>
+
+.bco{
+  width: 200px;
+  margin: auto;
+}
+
+</style>

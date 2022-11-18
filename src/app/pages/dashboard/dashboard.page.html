@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons fill="clear" slot="start">
+      <ion-back-button text="" defaultHref="home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Liste</ion-title>
+    <ion-buttons slot="end">
+      <ion-button *ngIf="isOpen === false" color="primary" (click)="isOpen = true"><ion-icon name="add-circle"></ion-icon></ion-button>
+      <ion-button *ngIf="isOpen === true" color="danger" (click)="isOpen = false"><ion-icon name="backspace"></ion-icon></ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list class="ion-text-center" *ngIf="tasks.length > 0">
+    <ion-list-header>
+      Mes articles
+    </ion-list-header>
+    <ion-card class="tasks" *ngFor="let task of tasks; let i = index">
+      <ion-item>
+        <ion-checkbox slot="start" color="secondary" [checked]="task.isChecked " (ionChange)="onCheck($event, i)"></ion-checkbox>
+        <ion-label>Acheté</ion-label>
+      </ion-item>
+      <h4 *ngIf="!task.isChecked" class="task-title">{{ task.content}}</h4>
+      <h4 *ngIf="task.isChecked" class="task-title" style="color: skyblue; text-decoration: line-through;">{{ task.content }}</h4>
+      <ion-button fill="clear" color="danger" style="float: right;" (click)="supprprod(i)">
+        <ion-icon name="trash"></ion-icon>
+      </ion-button>
+    </ion-card>
+  </ion-list>
+</ion-content>
+
+<ion-footer *ngIf="isOpen">
+  <ion-item>
+    <ion-input [(ngModel)]="newTask"placeholder="Ajouter un article">
+
+    </ion-input>
+    <ion-button shape="round" (click)="Ajoutprod()" color="primary" [disabled]="newTask === ''">
+      <ion-icon name="add"></ion-icon>
+    </ion-button>
+  </ion-item>
+</ion-footer>

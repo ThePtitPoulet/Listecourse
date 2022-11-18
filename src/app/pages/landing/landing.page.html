@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content contentId="landingContent">
+  <ion-card class="welcome-card">
+    <ion-card-header>
+      <ion-card-title class="ion-text-center">Liste de course</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+<div class="connexion">
+<ion-footer>
+
+      <ion-row>
+        <ion-col>
+          <ion-button shape="round" color="primary" expand="full" color="primary" (click)="connexion()">Connexion</ion-button> <!--utilise la fonction connexion presente dans landing.page.ts-->
+        </ion-col>
+        <ion-col>
+          <ion-button shape="round" color="primary" expand="full" color="success" (click)="inscription()">Inscription</ion-button> <!--utilise la fonction inscription presente dans landing.page.ts-->
+        </ion-col>
+      </ion-row>
+
+</ion-footer>
+</div>
+
+<style>
+
+.connexion{
+  width: 150px;
+  margin: auto;
+  margin-bottom: 200px;
+  
+}
+
+</style>
+<ion-router-outlet id="landingContent"></ion-router-outlet>
